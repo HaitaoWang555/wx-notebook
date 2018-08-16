@@ -13,7 +13,7 @@
       </view>
     </scroll-view>
   </view>
-  <view class="addNote">
+  <view class="addNote" bindtap="addNote">
     <icon type="clear" size="40" color="#2d8cf0" />
   </view> 
 </view>

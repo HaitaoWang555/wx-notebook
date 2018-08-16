@@ -1,0 +1,17 @@
+<!--pages/editor/editor.wxml-->
+<view class="container fullScreen">
+  <image class="backgroundView" src="/images/back1.jpg" />
+  <view class="formWrap">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <input class="title" type="text" maxlength="15" placeholder="标题" />
+      <textarea placeholder="记录生活中的点滴" name="textarea" />
+      <button form-type="submit">提交</button>
+    </form>
+  </view>
+  <view class="footer">
+    <image src="/images/share.png" />
+    <image src="/images/setting.png" />
+    <image src="/images/delete.png" />
+    <image src="/images/edit.png" />
+  </view>
+</view>

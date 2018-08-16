@@ -28,5 +28,10 @@ Page({
   },
   onShow(){
 
+  },
+  addNote(){
+    wx.navigateTo({
+      url: '../editor/editor'
+    })   
   }
 })
