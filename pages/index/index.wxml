@@ -1,13 +1,19 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="container fullScreen">
+  <image class="backgroundView" src="/images/back1.jpg" />
+  <view class="noteView">
+    <!-- 便签目录 -->
+    <view wx:if="{{!noteList}}">
+      还没有添加过标签
+    </view>
+    <scroll-view class='noteList' wx:if="{{noteList}}">
+      <view class='listItem' wx:for="{{noteList}}" wx:key="noteList.index">
+        <view class="title">{{item.title}}</view>
+        <view class="date">{{item.date}}</view>
+      </view>
+    </scroll-view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <view class="addNote">
+    <icon type="clear" size="40" color="#2d8cf0" />
+  </view> 
 </view>
