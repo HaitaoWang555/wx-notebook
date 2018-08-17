@@ -57,7 +57,6 @@ Page({
     this.setData({
       isQuery: isQueryArr
     })
-    console.log(this.data.isQuery)
   },
   chooseItem(e){
     let curIndex = e.currentTarget.dataset.index
@@ -95,7 +94,6 @@ Page({
     for (let i = 0; i < queryData.length; i++) {
       if (queryData[i].value) {
         data.splice(i-num, 1)
-        console.log(data)
         num += 1
       }
     }
