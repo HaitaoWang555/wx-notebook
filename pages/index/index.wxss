@@ -61,3 +61,10 @@
 .footer {
   background-color: white;
 }
+
+.notQuery {
+  width:40rpx;
+  height:40rpx;
+  border:3rpx solid #ddd;
+  border-radius: 50%;
+}

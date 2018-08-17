@@ -13,15 +13,16 @@
         wx:for="{{noteList}}"
         wx:key="{{item.date}}"
         data-index="{{index}}"
-        bindtap="dataDetail"
+        bindtap="itemTap"
         bindlongpress="showSetting"
       >
         <view>
           <view class="title">{{item.title}}</view>
           <view class="date">{{item.date}}</view>
         </view>
-        <view class="checkbox">
-          <icon type="success" size="20"/>
+        <view class="checkbox {{!isSetting ? 'hide' : ''}}">
+          <icon type="success" size="20" class="{{!isQuery[index].value ? 'hide' : ''}}"/>
+          <view class="notQuery {{isQuery[index].value ? 'hide' : ''}}"></view>
         </view>
       </view>
     </scroll-view>
@@ -32,7 +33,8 @@
     <icon type="clear" size="40" color="#2d8cf0" />
   </view> 
   <view class="footer {{!isSetting ? 'hide' : ''}}">
-    <view class="allQuery">全选</view>
-    <view class="delate">删除</view>
+    <view class="cancel" bind:tap="cancel">取消</view>
+    <view class="allQuery" bind:tap="allQuery">全选</view>
+    <view class="delate" bind:tap="delatePrompt">删除</view>
   </view>
 </view>
