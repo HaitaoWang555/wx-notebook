@@ -9,6 +9,8 @@ Page({
   data: {
     thisNoteData: null,
     isSave: false,
+    isOldNote: false,
+    noteIndex: 0,
     showDialog: false,
     bgImgList: [
      {'img': '/images/back1.jpg'},
@@ -26,7 +28,9 @@ Page({
     if (options.page) {
       let data = this.getThisNote(options.page)
       this.setData({
+        noteIndex: options.page,
         isSave: true,
+        isOldNote: true,
         thisNoteData: data
       })
     }
@@ -48,6 +52,9 @@ Page({
     })
   },
   formSubmit(e){
+    if (this.data.isOldNote) {
+      this.delateThisNote(this.data.noteIndex)
+    }
     let formData = e.detail.value
     formData.date = util.formatTime(new Date())
     let noteData = wx.getStorageSync('noteData') || []
@@ -66,6 +73,11 @@ Page({
     let data = wx.getStorageSync('noteData')
     return data[index]
   },
+  delateThisNote(index) {
+    let data = wx.getStorageSync('noteData')
+    data.splice(index, 1)
+    wx.setStorageSync('noteData', data)
+  },
   edit(){
     this.setData({
       isSave: false
@@ -76,11 +88,13 @@ Page({
     })
   },
   delete() {
+    let _this = this
     wx.showModal({
       title: '确定要删除么？',
       success: function (res) {
         if (res.confirm) {
           // 从数据库中删除此组数据
+          _this.delateThisNote(_this.data.noteIndex)
           wx.redirectTo({
             url: '../index/index'
           })

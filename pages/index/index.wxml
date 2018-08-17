@@ -6,7 +6,7 @@
     <view class="noNote" wx:if="{{!noteList}}">
       还没有添加过标签,点击右下角添加便签
     </view>
-    <scroll-view class='noteList' wx:if="{{noteList}}">
+    <scroll-view class='noteList' scroll-y wx:if="{{noteList}}">
       <view class='listItem'
         wx:for="{{noteList}}"
         wx:key="{{item.date}}"
