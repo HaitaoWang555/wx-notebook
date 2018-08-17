@@ -15,6 +15,7 @@
 
 .noteView {
   width: 100%;
+  margin-top: 150rpx;
 }
 
 .noNote {
@@ -23,7 +24,10 @@
 }
 
 .noteList {
-  height: 98vh;
+  height: 88vh;
+}
+.view_bottom {
+  margin-bottom: 80rpx;
 }
 .listItem {
   padding: 10px 20px;
@@ -60,6 +64,8 @@
 
 .footer {
   background-color: white;
+  height: 40rpx;
+  line-height: 40rpx;
 }
 
 .notQuery {

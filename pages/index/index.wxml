@@ -3,11 +3,11 @@
   <image class="backgroundView" src="/images/back1.jpg" />
   <view class="noteView">
     <!-- 便签目录 -->
-    <view class="noNote" wx:if="{{!noteList}}">
+    <view class="noNote" wx:if="{{!noteList.length}}">
       还没有添加过标签,点击右下角添加便签
     </view>
-    <scroll-view class='noteList' scroll-y
-     wx:if="{{noteList}}"
+    <scroll-view class="noteList {{isSetting ? 'view_bottom' : ''}}" scroll-y
+     wx:if="{{noteList.length}}"
     >
       <view class='listItem'
         wx:for="{{noteList}}"

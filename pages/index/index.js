@@ -104,5 +104,12 @@ Page({
       noteList: wx.getStorageSync('noteData')
     })
     this.cancel()
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '便签小程序',
+      imageUrl: '/images/share.jpg',
+      path: '/pages/index/index'
+    }
   }
 })

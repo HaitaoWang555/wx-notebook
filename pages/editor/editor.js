@@ -130,9 +130,7 @@ Page({
   },
   gpback(){
     if (this.data.isSave) {
-      wx.navigateTo({
-        url: '../index/index'
-      })
+      wx.navigateBack()
     } else {
       wx.showModal({
         title: '正在返回首页',
@@ -140,9 +138,7 @@ Page({
         confirmText: '确认返回',
         success: function (res) {
           if (res.confirm) {
-            wx.redirectTo({
-              url: '../index/index'
-            })
+            wx.navigateBack()
           } else if (res.cancel) {
             wx.showToast({
               title: '已取消',
@@ -165,5 +161,12 @@ Page({
       bgImg: wx.getStorageSync('backgroundImg')
     })
     this.closeDialog()
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '便签小程序',
+      imageUrl: '/images/share.jpg',
+      path: '/pages/index/index'
+    }
   }
 })
