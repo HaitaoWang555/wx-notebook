@@ -74,3 +74,7 @@ wx.setStorageSync('noteData', noteData)
 wx.getStorageSync('noteData')
 wx.removeStorageSync('noteData')
 ```
+- 长按事件
+```
+bindlongpress
+```

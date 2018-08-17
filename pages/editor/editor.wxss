@@ -21,17 +21,6 @@ textarea {
   border-bottom: 2px solid white;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 10px;
-}
-
 .footer image {
   width: 80rpx;
   height: 80rpx;

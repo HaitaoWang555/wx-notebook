@@ -32,6 +32,9 @@
 
 .listItem {
   border-top: 1rpx solid #dddddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .listItem:first-child {
@@ -53,4 +56,8 @@
   color: #aaaaaa;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.footer {
+  background-color: white;
 }

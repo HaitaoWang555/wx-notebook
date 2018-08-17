@@ -6,19 +6,33 @@
     <view class="noNote" wx:if="{{!noteList}}">
       还没有添加过标签,点击右下角添加便签
     </view>
-    <scroll-view class='noteList' scroll-y wx:if="{{noteList}}">
+    <scroll-view class='noteList' scroll-y
+     wx:if="{{noteList}}"
+    >
       <view class='listItem'
         wx:for="{{noteList}}"
         wx:key="{{item.date}}"
         data-index="{{index}}"
         bindtap="dataDetail"
+        bindlongpress="showSetting"
       >
-        <view class="title">{{item.title}}</view>
-        <view class="date">{{item.date}}</view>
+        <view>
+          <view class="title">{{item.title}}</view>
+          <view class="date">{{item.date}}</view>
+        </view>
+        <view class="checkbox">
+          <icon type="success" size="20"/>
+        </view>
       </view>
     </scroll-view>
   </view>
-  <view class="addNote" bindtap="addNote">
+  <view class="addNote {{isSetting ? 'hide' : ''}}" 
+    bindtap="addNote"
+  >
     <icon type="clear" size="40" color="#2d8cf0" />
   </view> 
+  <view class="footer {{!isSetting ? 'hide' : ''}}">
+    <view class="allQuery">全选</view>
+    <view class="delate">删除</view>
+  </view>
 </view>

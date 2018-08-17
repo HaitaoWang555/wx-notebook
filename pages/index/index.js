@@ -2,7 +2,8 @@
 
 Page({
   data: {
-    noteList: []
+    noteList: [],
+    isSetting: false
   },
   onLoad: function () {
     // 获取本地数据进行展示
@@ -22,5 +23,11 @@ Page({
     wx.navigateTo({
       url: '../editor/editor'
     })   
+  },
+  showSetting(e){
+    console.log(e.currentTarget.dataset.index)
+    this.setData({
+      isSetting: true
+    })
   }
 })
