@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    noteData: [],
+    thisNoteData: null,
     isSave: false,
     showDialog: false,
     bgImgList: [
@@ -23,7 +23,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.page) {
+      let data = this.getThisNote(options.page)
+      this.setData({
+        isSave: true,
+        thisNoteData: data
+      })
+    }
   },
 
   /**
@@ -55,6 +61,10 @@ Page({
       icon: 'success',
       duration: 2000
     })
+  },
+  getThisNote(index){
+    let data = wx.getStorageSync('noteData')
+    return data[index]
   },
   edit(){
     this.setData({

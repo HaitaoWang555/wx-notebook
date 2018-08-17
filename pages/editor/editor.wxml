@@ -7,9 +7,11 @@
     <form bindsubmit="formSubmit" bindreset="formReset">
       <input class="title" type="text" maxlength="15"
         placeholder="标题" name="title"  disabled="{{isSave}}"
+        value="{{thisNoteData.title}}"
       />
       <textarea placeholder="记录生活中的点滴" name="textarea" 
         disabled="{{isSave}}"
+        value="{{thisNoteData.textarea}}"
       />
       <button form-type="submit" class="{{isSave ? 'hide' : ''}}">保存</button>
     </form>

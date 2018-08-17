@@ -1,6 +1,4 @@
 //index.js
-//获取应用实例
-const app = getApp()
 
 Page({
   data: {
@@ -12,6 +10,12 @@ Page({
   onShow(){
     this.setData({
       noteList: wx.getStorageSync('noteData')
+    })
+  },
+  dataDetail(e){
+    let dataIndex = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '../editor/editor?page=' + dataIndex
     })
   },
   addNote(){

@@ -7,7 +7,12 @@
       还没有添加过标签,点击右下角添加便签
     </view>
     <scroll-view class='noteList' wx:if="{{noteList}}">
-      <view class='listItem' wx:for="{{noteList}}" wx:key="{{item.date}}">
+      <view class='listItem'
+        wx:for="{{noteList}}"
+        wx:key="{{item.date}}"
+        data-index="{{index}}"
+        bindtap="dataDetail"
+      >
         <view class="title">{{item.title}}</view>
         <view class="date">{{item.date}}</view>
       </view>
