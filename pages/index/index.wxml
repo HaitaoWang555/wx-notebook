@@ -7,7 +7,7 @@
       还没有添加过标签
     </view>
     <scroll-view class='noteList' wx:if="{{noteList}}">
-      <view class='listItem' wx:for="{{noteList}}" wx:key="noteList.index">
+      <view class='listItem' wx:for="{{noteList}}" wx:key="unique">
         <view class="title">{{item.title}}</view>
         <view class="date">{{item.date}}</view>
       </view>

@@ -1,17 +1,40 @@
 <!--pages/editor/editor.wxml-->
 <view class="container fullScreen">
-  <image class="backgroundView" src="/images/back1.jpg" />
-  <view class="formWrap">
+  <image class="backgroundView" src="{{bgImg}}" />
+  <view class="formWrap"
+    bindtap="closeDialog"
+  >
     <form bindsubmit="formSubmit" bindreset="formReset">
-      <input class="title" type="text" maxlength="15" placeholder="标题" />
-      <textarea placeholder="记录生活中的点滴" name="textarea" />
-      <button form-type="submit">提交</button>
+      <input class="title" type="text" maxlength="15"
+        placeholder="标题" name="title"  disabled="{{isSave}}"
+      />
+      <textarea placeholder="记录生活中的点滴" name="textarea" 
+        disabled="{{isSave}}"
+      />
+      <button form-type="submit" class="{{isSave ? 'hide' : ''}}">保存</button>
     </form>
   </view>
   <view class="footer">
-    <image src="/images/share.png" />
-    <image src="/images/setting.png" />
-    <image src="/images/delete.png" />
-    <image src="/images/edit.png" />
+    <image src="/images/share.png"
+      bindtap="share"
+    />
+    <image src="/images/setting.png"
+      bindtap="setting" />
+    <image src="/images/delete.png" 
+      bindtap="delete"
+    />
+    <image src="/images/edit.png" 
+      bindtap="edit"
+    />
+  </view>
+  <view class="changeBg {{showDialog ? 'dialog_show' : ''}}">
+    <scroll-view class="bgImgWrap  scroll_view" scroll-x="true">
+      <view class="itemList scroll_item"
+        wx:for="{{bgImgList}}"
+        wx:key="unique"
+      >
+        <image src="{{item.img}}" data-index="{{index}}" bindtap="choseBg"/>
+      </view>
+    </scroll-view>
   </view>
 </view>

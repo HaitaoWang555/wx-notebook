@@ -36,3 +36,49 @@ textarea {
   width: 80rpx;
   height: 80rpx;
 }
+
+.changeBg {
+  display: none;
+  width: 100%;
+  height: 460rpx;
+  background-color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transform: translateY(150%);
+  transition: all 1s;
+}
+
+.dialog_show {
+  display: block;
+  transform: translateY(0);
+}
+
+.scroll_view {
+  white-space: nowrap;
+  display: flex;
+}
+
+.scroll_item {
+  width: 350rpx;
+  height: 420rpx;
+  display: inline-block;
+}
+
+.itemList {
+  margin: 20rpx;
+  margin-left: 0;
+}
+
+.itemList:first-child {
+  margin-left:20rpx;
+}
+
+.itemList image {
+  width: 100%;
+  height: 100%;
+}
