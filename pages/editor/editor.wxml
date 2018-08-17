@@ -17,9 +17,6 @@
     </form>
   </view>
   <view class="footer">
-    <image src="/images/share.png"
-      bindtap="share"
-    />
     <image src="/images/setting.png"
       bindtap="setting" />
     <image src="/images/delete.png" 
@@ -27,6 +24,9 @@
     />
     <image src="/images/edit.png" 
       bindtap="edit"
+    />
+    <image src="/images/rollback.png"
+      bindtap="gpback"
     />
   </view>
   <view class="changeBg {{showDialog ? 'dialog_show' : ''}}">

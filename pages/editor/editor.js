@@ -52,10 +52,26 @@ Page({
     })
   },
   formSubmit(e){
+    let formData = e.detail.value
+    if (formData.title === '') {
+      wx.showToast({
+        title: '请填写标题',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if (formData.textarea === '') {
+      wx.showToast({
+        title: '请填写内容',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     if (this.data.isOldNote) {
       this.delateThisNote(this.data.noteIndex)
     }
-    let formData = e.detail.value
     formData.date = util.formatTime(new Date())
     let noteData = wx.getStorageSync('noteData') || []
     noteData.unshift(formData)
@@ -112,10 +128,30 @@ Page({
       showDialog: false
     })
   },
-  share(){
-    wx.navigateTo({
-      url: '../logs/logs'
-    })   
+  gpback(){
+    if (this.data.isSave) {
+      wx.navigateTo({
+        url: '../index/index'
+      })
+    } else {
+      wx.showModal({
+        title: '正在返回首页',
+        content: '数据还未保存',
+        confirmText: '确认返回',
+        success: function (res) {
+          if (res.confirm) {
+            wx.redirectTo({
+              url: '../index/index'
+            })
+          } else if (res.cancel) {
+            wx.showToast({
+              title: '已取消',
+              duration: 2000
+            })
+          }
+        }
+      })
+    }
   },
   setting(){
     this.setData({
