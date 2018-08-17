@@ -3,11 +3,11 @@
   <image class="backgroundView" src="/images/back1.jpg" />
   <view class="noteView">
     <!-- 便签目录 -->
-    <view wx:if="{{!noteList}}">
-      还没有添加过标签
+    <view class="noNote" wx:if="{{!noteList}}">
+      还没有添加过标签,点击右下角添加便签
     </view>
     <scroll-view class='noteList' wx:if="{{noteList}}">
-      <view class='listItem' wx:for="{{noteList}}" wx:key="unique">
+      <view class='listItem' wx:for="{{noteList}}" wx:key="{{item.date}}">
         <view class="title">{{item.title}}</view>
         <view class="date">{{item.date}}</view>
       </view>

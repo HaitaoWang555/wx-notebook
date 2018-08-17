@@ -1,10 +1,13 @@
 // pages/editor/editor.js
+const util = require('../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    noteData: [],
     isSave: false,
     showDialog: false,
     bgImgList: [
@@ -34,9 +37,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      bgImg: wx.getStorageSync('backgroundImg')
+    })
   },
   formSubmit(e){
-    console.log(e.detail.value)
+    let formData = e.detail.value
+    formData.date = util.formatTime(new Date())
+    let noteData = wx.getStorageSync('noteData') || []
+    noteData.unshift(formData)
+    wx.setStorageSync('noteData', noteData)
     this.setData({
       isSave: true
     })
@@ -79,7 +89,9 @@ Page({
     })
   },
   share(){
-    console.log(share)
+    wx.navigateTo({
+      url: '../logs/logs'
+    })   
   },
   setting(){
     this.setData({
@@ -87,8 +99,10 @@ Page({
     })
   },
   choseBg(e){
+    let newBgImg = this.data.bgImgList[parseInt(e.currentTarget.dataset.index)].img
+    wx.setStorageSync('backgroundImg', newBgImg)
     this.setData({
-      bgImg: this.data.bgImgList[parseInt(e.currentTarget.dataset.index)].img
+      bgImg: wx.getStorageSync('backgroundImg')
     })
     this.closeDialog()
   }

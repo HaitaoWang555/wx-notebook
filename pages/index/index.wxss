@@ -17,6 +17,11 @@
   width: 100%;
 }
 
+.noNote {
+  text-align: center;
+  margin-top: 200rpx;
+}
+
 .listItem {
   padding: 10px 20px;
   background-color: transparent;

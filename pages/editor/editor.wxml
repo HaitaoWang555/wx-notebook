@@ -31,7 +31,7 @@
     <scroll-view class="bgImgWrap  scroll_view" scroll-x="true">
       <view class="itemList scroll_item"
         wx:for="{{bgImgList}}"
-        wx:key="unique"
+        wx:key="{{item.index}}"
       >
         <image src="{{item.img}}" data-index="{{index}}" bindtap="choseBg"/>
       </view>

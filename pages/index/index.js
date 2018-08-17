@@ -4,30 +4,15 @@ const app = getApp()
 
 Page({
   data: {
-    noteList: [
-      {
-        "title": "假数据假数据假数据假数据假数据",
-        "date": "2018-8-16"
-      }, {
-        "title": "假数据假数据假数据假数据假数据",
-        "date": "2018-8-16"
-      }, {
-        "title": "假数据假数据假数据假数据假数据",
-        "date": "2018-8-16"
-      }, {
-        "title": "假数据假数据假数据假数据假数据",
-        "date": "2018-8-16"
-      }, {
-        "title": "假数据假数据假数据假数据假数据",
-        "date": "2018-8-16"
-      }
-    ]
+    noteList: []
   },
   onLoad: function () {
     // 获取本地数据进行展示
   },
   onShow(){
-
+    this.setData({
+      noteList: wx.getStorageSync('noteData')
+    })
   },
   addNote(){
     wx.navigateTo({
